@@ -1,0 +1,165 @@
+<!--
+This is a sample implementation of a cool accordion made possible by jQuery and jQuery UI.
+
+* Implementation: 
+** Lexie Martin
+
+* References:
+** Tutorialspoint (http://www.tutorialspoint.com/jqueryui/jqueryui_accordion.htm)
+** Hongkiat (http://www.hongkiat.com/blog/theming-jquery-ui-accordion/)
+** The good people of Stack Overflow (http://stackoverflow.com/questions/12843418/jquery-ui-accordion-expand-collapse-all)
+ -->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Accordion Implementation</title>
+  <!-- Company stylesheet -->
+  <link href="[COMPANY STYLESHEET REMOVED]" media="screen" rel="stylesheet" type="text/css">
+  
+  <!-- jQuery UI styling -->
+  <link href="[FILE PATH]/stylesheets/jqueryUi/jquery-ui.css" rel="stylesheet">
+
+  <!-- jQuery and jQueryUI scripts -->
+  <script type="text/javascript" src="[FILE PATH]/javascript/jQuery_2.0.3.js"></script>
+  <script src="[FILE PATH]/stylesheets/jqueryUiTheme/jquery-ui.js"></script>
+</head>
+    <style>
+
+    /*Get rid of text decoration on links */
+      a {  
+          text-decoration: none;  
+      }  
+          :focus, :active {  
+          outline: 0;  
+      }
+
+
+    /*Make the elements in our page prettier. Work with the IDs, CSS! I believe in you! */
+      #header {
+          position:fixed;
+          top:0px;
+  		    height: 55px;
+  		    display:block;
+  		    width: 100%;
+          border-bottom: 6px solid #44842A;
+  		    text-align:center;
+  		    color: #f2f2f2;
+  		    padding: 0px 0 0 0;
+  	   }
+    
+        #footer {
+            position: fixed;
+            bottom: 0px;
+            height: 6px;
+            background-color: #44842A;
+            padding: 0px 0px 0px 0px;
+            width: 100%;
+        }
+        #accordion {
+            width: 100%;
+        }
+        
+        #accordion .ui-accordion-content {   
+            background-color: #f3f3f3;  
+            color: #777;
+            font-size: 12pt;  
+            line-height: 14pt;
+            padding-left: 6px;
+            padding-right: 6px;
+            max-height: 220px;
+        }
+        #accordion .ui-accordion-content a {  
+            color: #777;
+        }
+    
+        #accordion .ui-state-default {  
+            background-color: #44842A !important;
+            background: none;
+            margin: 0px;
+            color: white;  
+            line-height: 42px;  
+            display: block;
+            font-family: 'museosans_100', Arial, sans-serif;
+            font-size: 12pt;  
+            text-indent: 10px;
+            max-height: 30px;
+            border: 1px solid white;
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+        }
+        
+        #accordion .ui-accordion-header a {  
+            color: white;  
+            line-height: 42px;  
+            display: inline-block;
+            font-family: 'museosans_100', Arial, sans-serif;
+            font-size: 12pt;  
+            width: 100%;  
+            text-indent: 50px;  
+    }
+/*Change the icons from the default icons that jQueryUI uses */
+        .ui-icon.iconOpen {
+            background:url('IMAGE') no-repeat;
+            background-size:15px;
+            width:15px;
+            height:15px;
+        }
+        .ui-icon.iconClosed {
+            background:url('IMAGE') no-repeat;
+            background-size:15px;
+            width:15px;
+            height:15px;
+        }
+        .ui-state-default {
+            border: 0px;
+        }
+
+    </style>
+<body>
+<!--Now we put text content in our HTML -->
+
+<div id="accordion" class="accordion">
+  <h3>Accordion Heading 1</h3>
+  <div>
+    <p>This is some text that displays in this accordion content. This text is happy to be here.</p>
+  </div>
+  <h3>Accordion Heading 2</h3>
+  <div>
+    <p>Congratulations. You've gotten to another section of content within this accordion. We (as in me and the accordion) hope you're enjoying your stay with this accordion.</p>
+  </div>
+  <h3>Accordion Heading 3</h3>
+  <div>
+    <p>Now you have reached the third section of this accordion text. "Accordion" is a funny word.</p>
+  </div>
+  <h3>Accordion Heading 4</h3>
+  <div>
+    <p>You've gotten all the way down to the end of the accordion. Say what?</p>
+  </div>
+</div>
+
+ 
+<script>
+// And now for the tricky part. This function tells our library accordion how to behave. We want certain icons and we want the accordion to not resize automatically in this case. 
+ $(function () {
+     var icons = {
+         header: "iconClosed",
+         activeHeader: "iconOpen"
+     };
+     $("#accordion").accordion({
+         icons: icons,
+         collapsible: true,
+         autoHeight: false,
+         active: false
+     });
+ });
+
+// Boom goes the dynamite.
+
+</script>
+</body>
+</html>
+ 
